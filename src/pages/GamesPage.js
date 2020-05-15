@@ -38,13 +38,15 @@ export default class GamesPage extends React.Component {
     }
 
     renderGames() {
-        return <GamesList games={this.state.games}/>
+        return <GamesList 
+                    games={ this.state.games }
+                    onPressItem={ pageParams => this.props.navigation.navigate('GamesDetail', pageParams)}/>
     }
 
 
     render() {
         return(
-            <View style={styles.container}>
+            <View style={ styles.container }>
                 { this.renderGames() }
             </View>
             
@@ -56,7 +58,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        paddingHorizontal: 15,
         paddingTop: 15
     }
 });

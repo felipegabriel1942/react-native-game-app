@@ -2,12 +2,14 @@ import React from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, Image } from 'react-native';
 
 const GameListItem = props => {
-    const { game } = props;
+    const { game, navigateToGameDetail } = props;
     const { name } = game;
     const backgroundImage = game.background_image;
 
     return(
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => {
+            navigateToGameDetail({ game })
+        }}>
             <View style={styles.card}>
                 <Image
                     style={styles.avatar} 
@@ -27,6 +29,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 5,
         marginBottom: 10,
+        marginHorizontal: 15,
         flexDirection: 'row',
         paddingTop: 10
     },
