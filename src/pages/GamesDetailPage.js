@@ -1,26 +1,16 @@
 import React from 'react';
 import { View, ScrollView, StyleSheet, Image, Text } from 'react-native';
+import CardLine from '../components/CardLine';
+import getNamesFromArray from '../util/getNamesFromArray';
 
 export default class PeopleDetailPage extends React.Component {
-
-    getPlatformsNames(game) {
-        const listSize = game.platforms.length;
-        let platforms = '';
-        
-        game.platforms.forEach((platform, index) => {
-            platforms += platform.platform.name + (index == (listSize - 1) ? '.' : ', '); 
-
-        });
-
-
-        return platforms;
-    }
-
 
     render(){
         const { game } = this.props.navigation.state.params;
 
-        const platforms = this.getPlatformsNames(game);
+        //const platforms = getNamesFromArray(game.platforms, 'platform', 'name');
+        //const genres = getNamesFromArray(game.genres, 'name');
+        console.log(genres);
         
         return (
             <ScrollView 
@@ -29,10 +19,8 @@ export default class PeopleDetailPage extends React.Component {
                     source={{ uri: game.background_image }}
                     style={styles.image}/>
                 <View>
-                    <Text>
-                        Plataformas
-                    </Text>
-                    <Text>{platforms}</Text>
+                    <CardLine
+                        label='Plataformas: ' content={ platforms }/>
                 </View>
                 
             </ScrollView>
