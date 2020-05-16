@@ -1,4 +1,3 @@
-
 const getNamesFromArray = (array, params) => {
     const listSize = array.length;
     let string = '';

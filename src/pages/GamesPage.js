@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ActivityIndicator } from 'react-native';
 
 import axios from 'axios';
 import GamesList from '../components/GamesList';
@@ -11,11 +11,14 @@ export default class GamesPage extends React.Component {
         super(props);
 
         this.state = {
-            games: []
+            games: [],
+            loading: false,
         }
     }
 
     componentDidMount() {
+        this.setState({loading: true});
+
         axios({
             "method":"GET",
             "url":"https://rawg-video-games-database.p.rapidapi.com/games",
@@ -29,12 +32,17 @@ export default class GamesPage extends React.Component {
         .then((response)=>{
             const { results } = response.data;
             this.setState({
-                games: results
+                games: results,
+                loading: false
             });
         })
         .catch((error)=>{
             console.log(error)
         });
+    }
+
+    renderLoading() {
+       return <ActivityIndicator size='large' color='#6ca2f7'/>;
     }
 
     renderGames() {
@@ -47,7 +55,7 @@ export default class GamesPage extends React.Component {
     render() {
         return(
             <View style={ styles.container }>
-                { this.renderGames() }
+                { this.state.loading ? this.renderLoading() : this.renderGames() }
             </View>
             
         );

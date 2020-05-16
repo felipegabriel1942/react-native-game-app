@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView, StyleSheet, Image, Text } from 'react-native';
+import { View, ScrollView, StyleSheet } from 'react-native';
 import { SliderBox } from 'react-native-image-slider-box';
 
 import CardLine from '../components/CardLine';
@@ -14,7 +14,6 @@ export default class GamesDetailPage extends React.Component {
         const platforms = getNamesFromArray(game.platforms, 'platform');
         const genres = getNamesFromArray(game.genres, 'genres');
         const images = getImagesFromArray(game.short_screenshots);
-        console.log(images);
         
         return (
             <ScrollView>

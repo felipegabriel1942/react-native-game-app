@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, StyleSheet, Text } from 'react-native';
+import { FlatList } from 'react-native';
 import GameListItem from './GameListItem';
 
 const GamesList = props => {
