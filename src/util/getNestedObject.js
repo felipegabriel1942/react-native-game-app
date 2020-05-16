@@ -1,15 +1,3 @@
-
-const getNamesFromArray = (array, field) => {
-    const listSize = array.length;
-    let string = '';
-    
-    array.forEach((el, index) => {
-        string += getNestedObject(el, field) + (index == (listSize - 1) ? '.' : ', '); 
-    });
-
-    return string;
-}
-
 const getNestedObject = (object, key) => {
 
     let value = ''
@@ -29,14 +17,8 @@ const getNestedObject = (object, key) => {
         });
     }
 
-    console.log(value);
-    if(value == '') {
-        return 'pomba';
-    } else {
-        return value;
-    }
-    
+    return value;
     
 }
 
-export default getNamesFromArray;
+export default getNestedObject;

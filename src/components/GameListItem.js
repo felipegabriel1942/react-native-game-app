@@ -10,7 +10,9 @@ const GameListItem = props => {
         <TouchableOpacity onPress={() => {
             navigateToGameDetail({ game })
         }}>
-            <View style={styles.card}>
+            <View 
+                style={styles.card}
+                elevation={2}>
                 <Image
                     style={styles.avatar} 
                     source={{uri: backgroundImage}}/>
@@ -24,8 +26,6 @@ const GameListItem = props => {
 const styles = StyleSheet.create({
     card: {
         height: 60,
-        borderWidth: 1,
-        borderColor: '#726af7',
         backgroundColor: 'white',
         borderRadius: 5,
         marginBottom: 10,

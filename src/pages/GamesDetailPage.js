@@ -3,14 +3,13 @@ import { View, ScrollView, StyleSheet, Image, Text } from 'react-native';
 import CardLine from '../components/CardLine';
 import getNamesFromArray from '../util/getNamesFromArray';
 
-export default class PeopleDetailPage extends React.Component {
+export default class GamesDetailPage extends React.Component {
 
     render(){
         const { game } = this.props.navigation.state.params;
 
-        //const platforms = getNamesFromArray(game.platforms, 'platform', 'name');
-        //const genres = getNamesFromArray(game.genres, 'name');
-        console.log(genres);
+        const platforms = getNamesFromArray(game.platforms, 'name');
+
         
         return (
             <ScrollView 
