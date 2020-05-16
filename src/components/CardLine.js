@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         paddingVertical: 3
     }, 
     label: {
-        flex: 1,
+        flex: 2,
         fontWeight: "bold"
     },
     content: {

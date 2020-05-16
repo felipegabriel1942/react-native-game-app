@@ -7,31 +7,47 @@ export default class GamesDetailPage extends React.Component {
 
     render(){
         const { game } = this.props.navigation.state.params;
-
-        const platforms = getNamesFromArray(game.platforms, 'name');
-
+        const platforms = getNamesFromArray(game.platforms, 'platform');
+        const genres = getNamesFromArray(game.genres, 'genres');
         
         return (
-            <ScrollView 
-                style={styles.container}>
-                <Image 
-                    source={{ uri: game.background_image }}
-                    style={styles.image}/>
-                <View>
-                    <CardLine
-                        label='Plataformas: ' content={ platforms }/>
+            <ScrollView>
+                <View 
+                    style={styles.card} 
+                    elevation={2}>
+                    <Image 
+                        source={{ uri: game.background_image }}
+                        style={styles.image}/>
+                    <View style={styles.infoCard}>
+                        <CardLine label='Plataformas: ' content={ platforms }/>
+                        <CardLine label='Genêro(s): ' content={ genres }/>
+                        <CardLine label='Lançamento: ' content={ game.released }/>
+                        <CardLine label='Nota(Metacritic): ' content={ game.metacritic }/>
+                        <CardLine label='Tempo de jogo: ' content={ game.playtime + ' horas' }/>
+                    </View>
                 </View>
-                
             </ScrollView>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        padding: 15
-    }, 
     image: {
-        aspectRatio: 1
+        aspectRatio: 1,
+        marginTop: 15,
+        flexDirection: 'row',
+        marginLeft: 15,
+        borderRadius: 3
+    },
+    card: {
+        marginTop: 15,
+        backgroundColor: 'white',
+        borderRadius: 5,
+        marginBottom: 5,
+        marginHorizontal: 5,
+
+    },
+    infoCard: {
+        paddingHorizontal: 15
     }
 });

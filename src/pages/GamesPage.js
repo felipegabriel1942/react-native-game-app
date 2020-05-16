@@ -58,6 +58,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        paddingTop: 15
+        paddingTop: 15,
     }
 });
