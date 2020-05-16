@@ -13,7 +13,7 @@ const CardLine = ({label = '', content = '-'}) => {
 const styles = StyleSheet.create({
     line: {
         flexDirection: 'row',
-        paddingVertical: 3
+        paddingBottom: 10
     }, 
     label: {
         flex: 2,
